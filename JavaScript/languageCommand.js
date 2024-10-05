@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //ID에 해당하는 HTML파일을 불러와 main에 삽입하는 함수
     function loadContent(ContentsId) {
         //fetch : 파일을 비동기적으로 가져옴
-        fetch(`/languageContents/${ContentsId}.html`)
+        fetch(`languageContents/${ContentsId}.html`)
             //응답을 텍스트로 변환
             .then(function(response){
                 return response.text();
