@@ -1,0 +1,422 @@
+<table>
+    <tr>
+      <th>
+        <h2>그래프 그리기</h2> 
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <h3>목차</h3>
+        <ul>
+          <li>맷플롯립(matplotlib)
+            <ul>
+              <li>맷플롯립이란?</li>
+              <li>맷플롯립으로 그래프 그리기
+                <ul>
+                  <li>선그래프: plot()</li>
+                  <li>산점도 그래프: scatter()</li>
+                  <li>막대 그래프: bar()/barh()</li>
+                  <li>빈도 그래프(히스토그램): hist()</li>
+                  <li>그래프 제목, x축, y축 제목 지정: title(), xlabel(), ylabel()</li>
+                  <li>한 화면에 여러 개 그래프 나타내기: subplots()</li>
+                  <li>맷플롯립(matplotlib)을 사용할 때 한글 출력하는 방법</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>시본
+            <ul>
+              <li>시본이란?</li>
+              <li>시본으로 그래프 그리기
+                <ul>
+                  <li>산점도 그래프: scatterplot()</li>
+                  <li>범주별 데이터 개수를 표시하는 막대 그래프: counterplot()</li>
+                  <li>범주별 항목값 평균을 표시하는 막대 그래프: barplot()</li>
+                  <li>히스토그램: histplot()</li>
+                  <li>숫자값을 갖는 칼럼들의 상관관계를 보여주는 그래프: pairplot()</li>
+                  <li>산점도와 추세선(회귀선)을 동시에 보여주는 그래프: regplot()</li>
+                  <li>집계한 값에 따라서 색깔을 표시하는 그래프(히트맵): heatmap()</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  
+        <h3>세부 내용</h3>
+        <ol>
+          <li>맷플롯립이란?
+            <ol>
+              <li>맷플롯립은 파이썬에서 데이터 시각화를 위한 라이브러리입니다.</li>
+            </ol>
+          </li>
+          <li>맷플롯립으로 그래프 그리기
+            <ol>
+              <li>선그래프: plot()
+                <ol>
+                  <li>사용법: plot(x값, y값, 선 스타일 문자열, marker='마커기호', label='그래프이름')</li>
+                  <li>y값은 필수고 나머지는 생략 가능</li>
+                </ol>
+              </li>
+              <li>산점도 그래프: scatter()
+                <ol>
+                  <li>사용법: scatter(x값, y값, c='색 문자' 혹은 '색깔 문자열', marker='마커기호', label='그래프 이름')</li>
+                </ol>
+              </li>
+              <li>막대 그래프: bar()/barh()
+                <ol>
+                  <li>사용법: bar(x값, y값, c='색 문자' 혹은 '색깔 문자열')</li>
+                  <li>범주별 데이터를 나타내는 세로 막대 그래프를 생성하며, x값은 문자열도 가능하다.</li>
+                  <li>사용법: barh(x값, y값, c='색 문자' 혹은 '색깔 문자열')</li>
+                  <li>범주별 데이터를 나타내는 가로 막대 그래프를 생성하며 y값은 문자열도 가능하다.</li>
+                </ol>
+              </li>
+              <li>빈도 그래프(히스토그램): hist()
+                <ol>
+                  <li>사용법: hist(x값, bins=x값 구간 개수, color='색 문자' 혹은 '색깔 문자열', align='left'/'mid'/'right' 중 하나)</li>
+                  <li>x값으로 전달된 데이터의 개별 항목들이 각 구간에 포함되는 개수를 그래프로 나타낸다.</li>
+                </ol>
+              </li>
+              <li>그래프 제목, x축, y축 제목 지정: title(), xlabel(), ylabel()
+                <ol>
+                  <li>사용법: title('문자열')</li>
+                  <li>그래프의 제목을 표시한다.</li>
+                  <li>사용법: xlabel('문자열')</li>
+                  <li>x축 제목을 표시한다.</li>
+                  <li>사용법: ylabel('문자열')</li>
+                  <li>y축 제목을 표시한다.</li>
+                </ol>
+              </li>
+              <li>한 화면에 여러 개 그래프 나타내기: subplots()
+                <ol>
+                  <li>사용법: subplots(행 개수, 열 개수, figsize=(가로 길이, 세로 길이))</li>
+                  <li>여러 개의 그래프를 한 화면에 그리도록 화면을 분할한다.</li>
+                </ol>
+              </li>
+              <li>맷플롯립(matplotlib)을 사용할 때 한글 출력하는 방법
+                <ol>
+                  <li>주피터 노트북을 사용한 경우</li>
+                  <li>코랩을 사용하는 경우</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>시본이란?
+            <ol>
+              <li>시본은 파이썬에서 데이터 시각화를 위한 고급 라이브러리입니다.</li>
+            </ol>
+          </li>
+          <li>시본으로 그래프 그리기
+            <ol>
+              <li>산점도 그래프: scatterplot()
+                <ol>
+                  <li>사용법: scatterplot(x='x축에 표시할 칼럼명', y='y축에 표시할 칼럼명', hue='데이터 구분 칼럼명', data=데이터프레임)</li>
+                  <li>x,y에 있는 두 데이터 간의 상관관계를 좌표평면의 점으로 나타내는 산점도 그래프를 그린다.</li>
+                </ol>
+              </li>
+              <li>범주별 데이터 개수를 표시하는 막대 그래프: counterplot()
+                <ol>
+                  <li>사용법: counterplot(x='x축에 범주로 표시할 칼럼명', hue='데이터 구분 칼럼명', data=데이터프레임)</li>
+                  <li>범주별 데이터 개수를 나타내는 막대 그래프를 그린다.</li>
+                </ol>
+              </li>
+              <li>범주별 항목값 평균을 표시하는 막대 그래프: barplot()
+                <ol>
+                  <li>사용법: barplot(x='x축에 표시할 칼럼명', y='y축에 표시할 칼럼명', hue='데이터 구분 칼럼명', data=데이터프레임)</li>
+                  <li>x값에 대한 y값 평균 막대 그래프로 표시한다.</li>
+                </ol>
+              </li>
+              <li>히스토그램: histplot()
+                <ol>
+                  <li>사용법: histplot(x='x축에 표시할 칼럼명', kde=True/False, data=데이터프레임)</li>
+                  <li>x로 전달된 데이터의 개별 항목들이 각 구간에 포함되는 개수 분포를 나타내는 히스토그램을 그린다.</li>
+                </ol>
+              </li>
+              <li>숫자값을 갖는 칼럼들의 상관관계를 보여주는 그래프: pairplot()
+                <ol>
+                  <li>사용법: pairplot(데이터프레임, hue='범주를 갖는 칼럼명')</li>
+                  <li>hue를 지정하면 범주별로 구분해서 칼럼들 간의 상관관계를 표시한다.</li>
+                </ol>
+              </li>
+              <li>산점도와 추세선(회귀선)을 동시에 보여주는 그래프: regplot()
+                <ol>
+                  <li>사용법: regplot(x='x축에 표시할 칼럼명', y='y축에 표시할 칼럼명', data=데이터프레임)</li>
+                  <li>x,y에 있는 두 데이터 간의 상관관계에 대해서 좌표평면의 점과 추세선(회귀선)을 동시에 나타내는 그래프를 그린다.</li>
+                </ol>
+              </li>
+              <li>집계한 값에 따라서 색깔을 표시하는 그래프(히트맵): heatmap()
+                <ol>
+                  <li>사용법: heatmap(data=2차원 행렬 형태로 전달된 데이터, annot=True/False, fmt='파이썬 서식문자열', cbar=True/False)</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+  
+        <h3>특징</h3>
+        <ol>
+          <li>맷플롯립과 시본은 다양한 그래프를 그릴 수 있는 강력한 기능을 제공합니다.</li>
+          <li>사용자가 원하는 스타일로 그래프를 커스터마이징할 수 있습니다.</li>
+        </ol>
+  
+        <h3>사용 이유</h3>
+        <ol>
+          <li>데이터 시각화를 통해 복잡한 데이터를 쉽게 이해할 수 있습니다.</li>
+          <li>다양한 그래프 스타일을 통해 데이터를 효과적으로 표현할 수 있습니다.</li>
+        </ol>
+  
+        <h3>내장 함수/매개 변수</h3>
+        <ol>
+          <li>
+            <pre>
+  #plot() 함수
+  plot(x값, y값, 선 스타일 문자열, 
+       marker='마커기호',           # 데이터 점의 모양
+       label='그래프이름',         # 범례에 표시될 이름
+       linewidth=숫자,           # 선의 굵기
+       alpha=0~1 사이 값,        # 투명도
+       color='색상',            # 선의 색상
+       linestyle='-'|'--'|':'   # 선의 스타일
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #scatter() 함수
+  scatter(x값, y값, 
+          c='색상' 또는 색상 배열,  # 점의 색상
+          marker='마커기호',       # 점의 모양
+          label='그래프 이름',     # 범례에 표시될 이름
+          s=크기 또는 크기 배열,    # 점의 크기
+          alpha=0~1 사이 값,      # 투명도
+          cmap='컬러맵 이름'      # 색상 맵
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #bar()/barh() 함수
+  bar(x값, y값, 
+      color='색상',            # 막대의 색상
+      width=숫자,             # 막대의 너비
+      bottom=배열,            # 막대의 시작 위치
+      label='그래프 이름',      # 범례에 표시될 이름
+      alpha=0~1 사이 값       # 투명도
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #hist() 함수
+  hist(x값, 
+       bins=구간 개수,          # 히스토그램 구간 수
+       color='색상',           # 막대의 색상
+       align='left|mid|right', # 구간 정렬 방식
+       density=True|False,     # 밀도 표현 여부
+       histtype='bar|step|stepfilled', # 히스토그램 스타일
+       alpha=0~1 사이 값       # 투명도
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #scatterplot() 함수
+  scatterplot(
+      x='x축 칼럼명', 
+      y='y축 칼럼명', 
+      hue='구분 칼럼명',        # 색상 구분 기준
+      size='크기 칼럼명',       # 점 크기 기준
+      style='스타일 칼럼명',    # 점 스타일 기준
+      data=데이터프레임,
+      alpha=0~1 사이 값       # 투명도
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #histplot() 함수
+  histplot(
+      x='x축 칼럼명', 
+      kde=True|False,         # 커널 밀도 추정 표시
+      data=데이터프레임,
+      multiple='layer|stack|dodge', # 여러 분포 표시 방식
+      bins=구간 개수,          # 히스토그램 구간 수
+      stat='count|density|probability' # 통계량 지정
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #pairplot() 함수
+  pairplot(
+      데이터프레임, 
+      hue='구분 칼럼명',
+      diag_kind='hist|kde',   # 대각선 그래프 종류
+      plot_kws=딕셔너리,       # 그래프 스타일 설정
+      height=숫자,            # 각 그래프의 크기
+      aspect=숫자             # 그래프의 가로/세로 비율
+  )
+            </pre>
+          </li>
+          <li>
+            <pre>
+  #heatmap() 함수
+  heatmap(
+      data=2차원 행렬,
+      annot=True|False,      # 셀 안에 값 표시
+      fmt='서식문자열',        # 값의 표시 형식
+      cbar=True|False,       # 컬러바 표시
+      cmap='컬러맵',         # 색상 맵
+      center=중심값,         # 색상 스케일의 중심점
+      vmin=최소값,           # 색상 스케일의 최소값
+      vmax=최대값            # 색상 스케일의 최대값
+  )
+            </pre>
+          </li>
+        </ol>
+
+        <h3>예제 구문</h3>
+            <strong>
+                <pre>
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import pandas as pd
+
+# 한글 폰트 설정
+plt.rc('font', family='Malgun Gothic')
+
+# 샘플 데이터 생성
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+data = pd.DataFrame({
+    'x': x,
+    'y': y,
+    'category': np.random.choice(['A', 'B', 'C'], 100)
+})
+
+# 1. Matplotlib 예제
+# 1.1 선 그래프
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, 'r--', marker='o', label='sin(x)')
+plt.title('선 그래프 예제')
+plt.xlabel('x축')
+plt.ylabel('y축')
+plt.legend()
+plt.show()
+
+# 1.2 산점도 그래프
+plt.figure(figsize=(10, 6))
+plt.scatter(x, y, c='blue', marker='^', label='데이터 포인트')
+plt.title('산점도 그래프 예제')
+plt.xlabel('x축')
+plt.ylabel('y축')
+plt.legend()
+plt.show()
+
+# 1.3 막대 그래프
+categories = ['A', 'B', 'C', 'D']
+values = [23, 45, 56, 78]
+plt.figure(figsize=(10, 6))
+plt.bar(categories, values, color='green')
+plt.title('막대 그래프 예제')
+plt.xlabel('카테고리')
+plt.ylabel('값')
+plt.show()
+
+# 1.4 히스토그램
+plt.figure(figsize=(10, 6))
+plt.hist(y, bins=30, color='purple', alpha=0.7)
+plt.title('히스토그램 예제')
+plt.xlabel('값')
+plt.ylabel('빈도')
+plt.show()
+
+# 1.5 서브플롯
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+ax1.plot(x, y, 'r')
+ax1.set_title('첫 번째 그래프')
+ax2.scatter(x, y, c='b')
+ax2.set_title('두 번째 그래프')
+plt.show()
+
+# 2. Seaborn 예제
+# 2.1 산점도
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=data, x='x', y='y', hue='category')
+plt.title('Seaborn 산점도 예제')
+plt.show()
+
+# 2.2 카운트플롯
+plt.figure(figsize=(10, 6))
+sns.countplot(data=data, x='category')
+plt.title('카운트플롯 예제')
+plt.show()
+
+# 2.3 바플롯
+plt.figure(figsize=(10, 6))
+sns.barplot(data=data, x='category', y='y')
+plt.title('바플롯 예제')
+plt.show()
+
+# 2.4 히스토그램
+plt.figure(figsize=(10, 6))
+sns.histplot(data=data, x='y', kde=True)
+plt.title('히스토그램 예제 (KDE 포함)')
+plt.show()
+
+# 2.5 페어플롯
+sns.pairplot(data.drop('x', axis=1), hue='category')
+plt.show()
+
+# 2.6 회귀선 그래프
+plt.figure(figsize=(10, 6))
+sns.regplot(data=data, x='x', y='y')
+plt.title('회귀선 그래프 예제')
+plt.show()
+
+# 2.7 히트맵
+correlation_matrix = data.drop('category', axis=1).corr()
+plt.figure(figsize=(8, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.title('상관관계 히트맵')
+plt.show()
+
+# 복합 예제: 다양한 스타일과 기능을 조합한 그래프
+# 1. 스타일이 적용된 다중 선 그래프
+plt.style.use('seaborn')
+plt.figure(figsize=(12, 6))
+plt.plot(x, np.sin(x), 'r-', label='sin(x)', linewidth=2)
+plt.plot(x, np.cos(x), 'b--', label='cos(x)', linewidth=2)
+plt.title('삼각함수 그래프 비교', pad=20)
+plt.xlabel('x값', labelpad=10)
+plt.ylabel('y값', labelpad=10)
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.legend(loc='upper right')
+plt.show()
+
+# 2. 서브플롯을 활용한 다중 시각화
+fig = plt.figure(figsize=(15, 10))
+gs = fig.add_gridspec(2, 2)
+
+# 2.1 선 그래프
+ax1 = fig.add_subplot(gs[0, 0])
+ax1.plot(x, y, 'r-')
+ax1.set_title('선 그래프')
+
+# 2.2 산점도
+ax2 = fig.add_subplot(gs[0, 1])
+ax2.scatter(x, y, c=y, cmap='viridis')
+ax2.set_title('산점도')
+
+# 2.3 히스토그램
+ax3 = fig.add_subplot(gs[1, :])
+ax3.hist(y, bins=30, alpha=0.7)
+ax3.set_title('히스토그램')
+
+plt.tight_layout()
+plt.show()
+                </pre>
+            </strong>
+      </td>
+    </tr>
+  </table>

@@ -8,7 +8,7 @@ table{
     width: 100%;
     table-layout: fixed;
 }
-table, tr, td{
+table, tr, td, caption{
     padding: 10px;
     background-color: rgb(231, 231, 231);
     border-collapse: collapse; /* 이중 테두리를 단일 테두리로 변경*/
@@ -49,4 +49,8 @@ main{
     table{
         width: 500px;
     }
+}
+
+pre{
+    white-space: pre-wrap;
 }

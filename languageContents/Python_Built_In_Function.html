@@ -1,0 +1,1067 @@
+<table>
+    <tr>
+      <th>
+        <h2>파이썬의 내장 함수들</h2>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <!-- 1. 목차 섹션 -->
+        <h3>제목</h3>
+        <ul>
+          <li>파이썬 내장 함수
+            <ul>
+              <li>print()</li>
+              <li>input()</li>
+              <li>len()</li>
+              <li>type()</li>
+              <li>str()</li>
+              <li>int()</li>
+              <li>float()</li>
+              <li>bool()</li>
+              <li>list()</li>
+              <li>tuple()</li>
+              <li>set()</li>
+              <li>dict()</li>
+              <li>abs()</li>
+              <li>min()</li>
+              <li>max()</li>
+              <li>sum()</li>
+              <li>sorted()</li>
+              <li>range()</li>
+              <li>enumerate()</li>
+              <li>zip()</li>
+              <li>map()</li>
+              <li>filter()</li>
+              <li>all()</li>
+              <li>any()</li>
+              <li>round()</li>
+              <li>pow()</li>
+              <li>divmod()</li>
+              <li>hex()</li>
+              <li>oct()</li>
+              <li>bin()</li>
+              <li>chr()</li>
+              <li>ord()</li>
+              <li>id()</li>
+              <li>dir()</li>
+              <li>help()</li>
+              <li>eval()</li>
+              <li>exec()</li>
+              <li>open()</li>
+              <li>callable()</li>
+              <li>isinstance()</li>
+              <li>issubclass()</li>
+              <li>getattr()</li>
+              <li>setattr()</li>
+              <li>hasattr()</li>
+              <li>delattr()</li>
+              <li>property()</li>
+              <li>staticmethod()</li>
+              <li>classmethod()</li>
+              <li>super()</li>
+              <li>object()</li>
+              <li>bytes()</li>
+              <li>bytearray()</li>
+              <li>memoryview()</li>
+              <li>frozenset()</li>
+              <li>complex()</li>
+              <li>ascii()</li>
+              <li>repr()</li>
+              <li>globals()</li>
+              <li>locals()</li>
+              <li>vars()</li>
+              <li>compile()</li>
+              <li>__import__()</li>
+              <li>next()</li>
+              <li>iter()</li>
+              <li>reversed()</li>
+              <li>slice()</li>
+              <li>format()</li>
+              <li>hash()</li>
+            </ul>
+          </li>
+        </ul>
+  
+        <!-- 2. 상세 내용 섹션 -->
+      <h3>세부 내용 정의</h3>
+      <ol>
+        <li>print()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>print() 함수는 출력합니다.</li>
+                <li>예시: print('Hello') -> Hello 출력</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>input()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>input() 함수는 사용자 입력을 받습니다.</li>
+                <li>예시: input('이름을 입력하세요: ') -> 사용자 입력 값</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>len()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>len() 함수는 객체의 길이를 반환합니다.</li>
+                <li>예시: len([1, 2, 3]) -> 3</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>type()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>type() 함수는 객체의 타입을 반환합니다.</li>
+                <li>예시: type(5) -> &lt;class 'int'&gt;</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>str()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>str() 함수는 객체를 문자열로 변환합니다.</li>
+                <li>예시: str(10) -> '10'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>int()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>int() 함수는 문자열이나 숫자를 정수로 변환합니다.</li>
+                <li>예시: int('10') -> 10</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>float()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>float() 함수는 숫자나 문자열을 부동소수점 숫자로 변환합니다.</li>
+                <li>예시: float('3.14') -> 3.14</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>bool()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>bool() 함수는 객체를 불리언 값으로 변환합니다.</li>
+                <li>예시: bool(1) -> True</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>list()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>list() 함수는 리스트 객체를 생성합니다.</li>
+                <li>예시: list((1, 2, 3)) -> [1, 2, 3]</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>tuple()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>tuple() 함수는 튜플 객체를 생성합니다.</li>
+                <li>예시: tuple([1, 2, 3]) -> (1, 2, 3)</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>set()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>set() 함수는 집합 객체를 생성합니다.</li>
+                <li>예시: set([1, 2, 3]) -> {1, 2, 3}</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>dict()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>dict() 함수는 새로운 사전 객체를 생성합니다.</li>
+                <li>예시: dict(a=1, b=2) -> {'a': 1, 'b': 2}</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>abs()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>abs() 함수는 숫자의 절대값을 반환합니다.</li>
+                <li>예시: abs(-5) -> 5</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>min()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>min() 함수는 인수 중 가장 작은 값을 반환합니다.</li>
+                <li>예시: min(1, 2, 3) -> 1</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>max()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>max() 함수는 인수 중 가장 큰 값을 반환합니다.</li>
+                <li>예시: max(1, 2, 3) -> 3</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>sum()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>sum() 함수는 숫자들의 합을 반환합니다.</li>
+                <li>예시: sum([1, 2, 3]) -> 6</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>sorted()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>sorted() 함수는 정렬된 리스트를 반환합니다.</li>
+                <li>예시: sorted([3, 1, 2]) -> [1, 2, 3]</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>range()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>range() 함수는 숫자 시퀀스를 생성합니다.</li>
+                <li>예시: range(5) -> range(0, 5)</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>enumerate()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>enumerate() 함수는 인덱스와 요소를 포함하는 이터레이터를 반환합니다.</li>
+                <li>예시: enumerate(['a', 'b']) -> (0, 'a'), (1, 'b')</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>zip()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>zip() 함수는 여러 이터러블을 묶어줍니다.</li>
+                <li>예시: zip([1, 2], ['a', 'b']) -> [(1, 'a'), (2, 'b')]</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>map()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>map() 함수는 함수와 이터러블을 인수로 받아, 함수가 적용된 결과를 반환합니다.</li>
+                <li>예시: map(str, [1, 2, 3]) -> ['1', '2', '3']</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>filter()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>filter() 함수는 조건에 맞는 요소를 걸러냅니다.</li>
+                <li>예시: filter(lambda x: x > 0, [-1, 0, 1]) -> [1]</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>all()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>all() 함수는 모든 요소가 참이면 True를 반환합니다.</li>
+                <li>예시: all([True, True, False]) -> False</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>any()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>any() 함수는 하나 이상의 요소가 참이면 True를 반환합니다.</li>
+                <li>예시: any([False, True, False]) -> True</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>round()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>round() 함수는 숫자를 반올림합니다.</li>
+                <li>예시: round(3.14159, 2) -> 3.14</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>pow()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>pow() 함수는 거듭제곱을 계산합니다.</li>
+                <li>예시: pow(2, 3) -> 8</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>divmod()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>divmod() 함수는 몫과 나머지를 튜플로 반환합니다.</li>
+                <li>예시: divmod(7, 3) -> (2, 1)</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>hex()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>hex() 함수는 정수를 16진수 문자열로 변환합니다.</li>
+                <li>예시: hex(255) -> '0xff'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>oct()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>oct() 함수는 정수를 8진수 문자열로 변환합니다.</li>
+                <li>예시: oct(8) -> '0o10'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>bin()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>bin() 함수는 정수를 2진수 문자열로 변환합니다.</li>
+                <li>예시: bin(2) -> '0b10'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>chr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>chr() 함수는 유니코드 값을 문자로 변환합니다.</li>
+                <li>예시: chr(97) -> 'a'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>ord()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>ord() 함수는 문자의 유니코드 값을 반환합니다.</li>
+                <li>예시: ord('a') -> 97</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>id()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>id() 함수는 객체의 고유 식별자를 반환합니다.</li>
+                <li>예시: id(obj) -> 객체의 메모리 주소</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>dir()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>dir() 함수는 객체의 속성과 메서드 목록을 반환합니다.</li>
+                <li>예시: dir([]) -> 리스트 객체의 속성과 메서드 목록</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>help()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>help() 함수는 객체에 대한 도움말을 제공합니다.</li>
+                <li>예시: help(print) -> print 함수에 대한 설명 출력</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>eval()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>eval() 함수는 문자열로 표현된 코드를 실행합니다.</li>
+                <li>예시: eval('1 + 2') -> 3</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>exec()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>exec() 함수는 동적으로 파이썬 코드를 실행합니다.</li>
+                <li>예시: exec('print("Hello")') -> Hello 출력</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>open()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>open() 함수는 파일을 엽니다.</li>
+                <li>예시: open('file.txt', 'r') -> 파일 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>callable()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>callable() 함수는 객체가 호출 가능한지 확인합니다.</li>
+                <li>예시: callable(print) -> True</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>isinstance()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>isinstance() 함수는 객체가 특정 클래스의 인스턴스인지 확인합니다.</li>
+                <li>예시: isinstance(5, int) -> True</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>issubclass()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>issubclass() 함수는 클래스가 특정 클래스의 서브클래스인지 확인합니다.</li>
+                <li>예시: issubclass(bool, int) -> True</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>getattr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>getattr() 함수는 객체의 속성 값을 반환합니다.</li>
+                <li>예시: getattr(obj, 'attr') -> obj.attr</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>setattr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>setattr() 함수는 객체의 속성 값을 설정합니다.</li>
+                <li>예시: setattr(obj, 'attr', 10) -> obj.attr = 10</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>hasattr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>hasattr() 함수는 객체가 특정 속성을 가지고 있는지 확인합니다.</li>
+                <li>예시: hasattr(obj, 'attr') -> True 또는 False</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>delattr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>delattr() 함수는 객체의 속성을 삭제합니다.</li>
+                <li>예시: delattr(obj, 'attr') -> obj.attr 삭제</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>property()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>property() 함수는 속성을 정의합니다.</li>
+                <li>예시: property(fget=None, fset=None, fdel=None, doc=None) -> 속성 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>staticmethod()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>staticmethod() 함수는 정적 메서드를 정의합니다.</li>
+                <li>예시: staticmethod(func) -> 정적 메서드</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>classmethod()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>classmethod() 함수는 클래스 메서드를 정의합니다.</li>
+                <li>예시: classmethod(func) -> 클래스 메서드</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>super()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>super() 함수는 부모 클래스의 메서드를 호출합니다.</li>
+                <li>예시: super().method() -> 부모 클래스의 method 호출</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>object()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>object() 함수는 모든 클래스의 기본 클래스입니다.</li>
+                <li>예시: obj = object() -> 새로운 객체 생성</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>bytes()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>bytes() 함수는 바이트 객체를 생성합니다.</li>
+                <li>예시: bytes(5) -> 바이트 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>bytearray()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>bytearray() 함수는 바이트 배열 객체를 생성합니다.</li>
+                <li>예시: bytearray(5) -> 바이트 배열 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>memoryview()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>memoryview() 함수는 바이트 데이터를 메모리 뷰 객체로 변환합니다.</li>
+                <li>예시: memoryview(b'abc') -> 메모리 뷰 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>frozenset()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>frozenset() 함수는 변경 불가능한 집합을 생성합니다.</li>
+                <li>예시: frozenset([1, 2, 3]) -> frozenset({1, 2, 3})</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>complex()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>complex() 함수는 복소수를 생성합니다.</li>
+                <li>예시: complex(1, 2) -> (1+2j)</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>ascii()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>ascii() 함수는 객체의 ASCII 표현을 반환합니다.</li>
+                <li>예시: ascii('파이썬') -> "'\\ud30c\\uc774\\uc36c'"</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>repr()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>repr() 함수는 객체의 문자열 표현을 반환합니다.</li>
+                <li>예시: repr(10) -> '10'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>globals()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>globals() 함수는 전역 심볼 테이블의 사전을 반환합니다.</li>
+                <li>예시: globals() -> 전역 변수 사전</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>locals()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>locals() 함수는 현재 로컬 심볼 테이블의 사전을 반환합니다.</li>
+                <li>예시: locals() -> 로컬 변수 사전</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>vars()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>vars() 함수는 객체의 __dict__ 속성을 반환합니다.</li>
+                <li>예시: vars() -> 현재 로컬 심볼 테이블의 사전</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>compile()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>compile() 함수는 소스 코드를 코드 객체로 컴파일합니다.</li>
+                <li>예시: compile('print(1)', '', 'exec') -> 코드 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>__import__()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>__import__() 함수는 모듈을 동적으로 가져옵니다.</li>
+                <li>예시: __import__('os') -> os 모듈</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>next()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>next() 함수는 이터레이터의 다음 항목을 반환합니다.</li>
+                <li>예시: next(iter([1, 2, 3])) -> 1</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>iter()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>iter() 함수는 이터레이터 객체를 반환합니다.</li>
+                <li>예시: iter([1, 2, 3]) -> 이터레이터 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>reversed()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>reversed() 함수는 시퀀스를 역순으로 반환합니다.</li>
+                <li>예시: reversed([1, 2, 3]) -> [3, 2, 1]</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>slice()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>slice() 함수는 슬라이스 객체를 생성합니다.</li>
+                <li>예시: slice(1, 5, 2) -> 슬라이스 객체</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>format()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>format() 함수는 문자열을 포맷합니다.</li>
+                <li>예시: format(3.14159, '.2f') -> '3.14'</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>hash()
+          <ol>
+            <li>개념 설명
+              <ul>
+                <li>hash() 함수는 객체의 해시 값을 반환합니다.</li>
+                <li>예시: hash('abc') -> 해시 값</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+      </ol>
+  
+        <!-- 3. 특징 섹션 -->
+        <h3>특징</h3>
+        <ol>
+          <li>파이썬 내장 함수는 다양한 데이터 타입을 지원합니다.</li>
+          <li>함수 호출이 간단하고 직관적입니다.</li>
+        </ol>
+  
+        <!-- 4. 활용 섹션 -->
+        <h3>사용 이유</h3>
+        <ol>
+          <li>코드의 가독성을 높이고 유지보수를 용이하게 합니다.</li>
+          <li>복잡한 연산을 간단하게 처리할 수 있습니다.</li>
+        </ol>
+  
+        <!-- 5. 예제 코드 섹션 -->
+      <h3>예제 구문</h3>
+      <strong>
+        <pre>
+# print() 예제
+print('Hello')  # Hello 출력
+
+# input() 예제
+# name = input('이름을 입력하세요: ')
+# print(name)  # 사용자 입력 값
+
+# len() 예제
+print(len([1, 2, 3]))  # 3
+
+# type() 예제
+print(type(5))  # &lt;class 'int'&gt;
+
+# str() 예제
+print(str(10))  # '10'
+
+# int() 예제
+print(int('10'))  # 10
+
+# float() 예제
+print(float('3.14'))  # 3.14
+
+# bool() 예제
+print(bool(1))  # True
+
+# list() 예제
+l = list((1, 2, 3))
+print(l)  # [1, 2, 3]
+
+# tuple() 예제
+t = tuple([1, 2, 3])
+print(t)  # (1, 2, 3)
+
+# set() 예제
+s = set([1, 2, 3])
+print(s)  # {1, 2, 3}
+
+# dict() 예제
+my_dict = dict(x=1, y=2)
+print(my_dict)  # {'x': 1, 'y': 2}
+
+# abs() 예제
+print(abs(-10))  # 10
+
+# min() 예제
+print(min(1, 2, 3))  # 1
+
+# max() 예제
+print(max(1, 2, 3))  # 3
+
+# sum() 예제
+print(sum([1, 2, 3]))  # 6
+
+# sorted() 예제
+print(sorted([3, 1, 2]))  # [1, 2, 3]
+
+# range() 예제
+r = range(5)
+print(list(r))  # [0, 1, 2, 3, 4]
+
+# enumerate() 예제
+for index, value in enumerate(['a', 'b']):
+    print(index, value)  # (0, 'a'), (1, 'b')
+
+# zip() 예제
+z = zip([1, 2], ['a', 'b'])
+print(list(z))  # [(1, 'a'), (2, 'b')]
+
+# map() 예제
+m = map(str, [1, 2, 3])
+print(list(m))  # ['1', '2', '3']
+
+# filter() 예제
+result = filter(lambda x: x > 0, [-1, 0, 1])
+print(list(result))  # [1]
+
+# all() 예제
+print(all([True, True, False]))  # False
+
+# any() 예제
+print(any([False, True, False]))  # True
+
+# round() 예제
+print(round(3.14159, 2))  # 3.14
+
+# pow() 예제
+print(pow(2, 3))  # 8
+
+# divmod() 예제
+print(divmod(7, 3))  # (2, 1)
+
+# hex() 예제
+print(hex(255))  # '0xff'
+
+# oct() 예제
+print(oct(8))  # '0o10'
+
+# bin() 예제
+print(bin(2))  # '0b10'
+
+# chr() 예제
+print(chr(97))  # 'a'
+
+# ord() 예제
+print(ord('a'))  # 97
+
+# id() 예제
+obj = object()
+print(id(obj))  # 객체의 메모리 주소
+
+# dir() 예제
+print(dir([]))  # 리스트 객체의 속성과 메서드 목록
+
+# help() 예제
+help(print)  # print 함수에 대한 설명 출력
+
+# eval() 예제
+print(eval('1 + 2'))  # 3
+
+# exec() 예제
+exec('print("Hello")')  # Hello 출력
+
+# open() 예제
+# with open('file.txt', 'r') as file:
+#     content = file.read()
+#     print(content)  # 파일 내용 출력
+
+# callable() 예제
+print(callable(print))  # True
+
+# isinstance() 예제
+print(isinstance(5, int))  # True
+
+# issubclass() 예제
+print(issubclass(bool, int))  # True
+
+# getattr() 예제
+class Example:
+    attr = 10
+print(getattr(Example, 'attr'))  # 10
+
+# setattr() 예제
+class Example:
+    pass
+obj = Example()
+setattr(obj, 'attr', 10)
+print(obj.attr)  # 10
+
+# hasattr() 예제
+class Example:
+    attr = 10
+print(hasattr(Example, 'attr'))  # True
+
+# delattr() 예제
+class Example:
+    attr = 10
+delattr(Example, 'attr')
+print(hasattr(Example, 'attr'))  # False
+
+# property() 예제
+class C:
+    def __init__(self):
+        self._x = None
+    def getx(self):
+        return self._x
+    def setx(self, value):
+        self._x = value
+    def delx(self):
+        del self._x
+    x = property(getx, setx, delx, "I'm the 'x' property.")
+c = C()
+c.x = 5
+print(c.x)  # 5
+
+# staticmethod() 예제
+class MyClass:
+    @staticmethod
+    def static_method():
+        return "static method"
+print(MyClass.static_method())  # "static method"
+
+# classmethod() 예제
+class MyClass:
+    @classmethod
+    def class_method(cls):
+        return "class method"
+print(MyClass.class_method())  # "class method"
+
+# super() 예제
+class Base:
+    def method(self):
+        return "Base method"
+class Derived(Base):
+    def method(self):
+        return super().method() + " and Derived method"
+d = Derived()
+print(d.method())  # "Base method and Derived method"
+
+# object() 예제
+obj = object()
+print(obj)  # 새로운 객체
+
+# bytes() 예제
+b = bytes(5)
+print(b)  # 바이트 객체
+
+# bytearray() 예제
+ba = bytearray(5)
+print(ba)  # 바이트 배열 객체
+
+# memoryview() 예제
+mv = memoryview(b'abc')
+print(mv[0])  # 97
+
+# frozenset() 예제
+fs = frozenset([1, 2, 3])
+print(fs)  # frozenset({1, 2, 3})
+
+# complex() 예제
+c = complex(1, 2)
+print(c)  # (1+2j)
+
+# ascii() 예제
+print(ascii('파이썬'))  # "'\\ud30c\\uc774\\uc36c'"
+
+# repr() 예제
+print(repr(10))  # '10'
+
+# globals() 예제
+print(globals())  # 전역 변수 사전
+
+# locals() 예제
+def func():
+    a = 1
+    b = 2
+    print(locals())
+func()  # {'a': 1, 'b': 2}
+
+# vars() 예제
+class Example:
+    def __init__(self):
+        self.attr = 10
+e = Example()
+print(vars(e))  # {'attr': 10}
+
+# compile() 예제
+code = compile('print(1)', '', 'exec')
+exec(code)  # 1 출력
+
+# __import__() 예제
+os = __import__('os')
+print(os.name)  # 'posix' 또는 'nt'
+
+# next() 예제
+iterator = iter([1, 2, 3])
+print(next(iterator))  # 1
+
+# iter() 예제
+iterator = iter([1, 2, 3])
+print(next(iterator))  # 1
+
+# reversed() 예제
+r = reversed([1, 2, 3])
+print(list(r))  # [3, 2, 1]
+
+# slice() 예제
+s = slice(1, 5, 2)
+print(s)  # slice(1, 5, 2)
+
+# format() 예제
+print(format(3.14159, '.2f'))  # '3.14'
+
+# hash() 예제
+print(hash('abc'))  # 해시 값
+        </pre>
+      </strong>
+    </td>
+  </tr>
+</table>

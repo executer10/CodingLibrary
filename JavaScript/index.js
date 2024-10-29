@@ -27,12 +27,12 @@ let Python_ONOFF = document.querySelector('.Python');
 handleBoxOnOff(Python_ONOFF);
 
 
-function handleBoxOnOff(element){
-    element.onmouseover =function(){
+function handleBoxOnOff(element) {
+    element.onmouseover = function () {
         this.style.width = '300px';
         this.style.height = '300px';
     }
-    element.onmouseout =function(){
+    element.onmouseout = function () {
         this.style.width = '200px';
         this.style.height = '200px';
     }

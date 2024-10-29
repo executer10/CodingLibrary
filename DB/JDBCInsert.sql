@@ -22,3 +22,19 @@ INSERT INTO article
         
         
 SELECT * FROM article;
+
+SELECT * FROM article
+ORDER BY id DESC;
+
+
+
+INSERT INTO `member`
+    SET regDate = NOW()
+        , updateDate = NOW()
+        , loginId = 'user1'
+        , loginPw = '1234'
+        , `name` = '유저1';
+        
+SELECT * FROM article;
+
+SELECT * FROM `member`;
