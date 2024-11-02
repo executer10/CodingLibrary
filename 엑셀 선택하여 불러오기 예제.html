@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel 파일 불러오기</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </head>
+
 <body>
     <h1>Excel 파일 불러오기</h1>
     <input type="file" id="fileInput" />
-    <br/><br/>
+    <br /><br />
     <table id="dataTable" border="1">
         <thead>
             <tr>
@@ -28,18 +30,18 @@
         function handleFile(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
-            
-            reader.onload = function(e) {
+
+            reader.onload = function (e) {
                 const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, {type: 'array'});
-                
+                const workbook = XLSX.read(data, { type: 'array' });
+
                 // 첫 번째 시트를 선택
                 const firstSheetName = workbook.SheetNames[0];
                 const worksheet = workbook.Sheets[firstSheetName];
 
                 // JSON 데이터로 변환
-                const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
-                
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
                 // 테이블에 데이터 추가
                 const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
                 tableBody.innerHTML = ''; // 기존 데이터 초기화
@@ -55,6 +57,8 @@
 
             reader.readAsArrayBuffer(file);
         }
+
     </script>
 </body>
+
 </html>

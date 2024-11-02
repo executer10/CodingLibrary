@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel 파일 불러오기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="CSS/CommandCenter.css">
+    <link rel="stylesheet" href="CSS/default.css">
+</head>
+
+<body>
+    <table id="dataTable" border="1">
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // HTML이 완전히 로드된 후에 실행되는 이벤트 리스너 추가
+        document.addEventListener("DOMContentLoaded", function () {
+            // 엑셀 파일 경로 지정
+            const excelFilePath = 'LanguageContentsExcelFile/Python_Built_In_Function.xlsx';  // 실제 엑셀 파일 경로로 수정 필요
+
+            // fetch를 사용하여 파일 불러오기
+            fetch(excelFilePath)
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const uint8Array = new Uint8Array(data);
+                    const workbook = XLSX.read(uint8Array, { type: 'array' });
+
+                    // 첫 번째 시트 선택
+                    const firstSheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[firstSheetName];
+
+                    // JSON 데이터로 변환
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                    // 테이블에 데이터 추가a    ````````````````
+                    const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+                    tableBody.innerHTML = ''; // 기존 데이터 초기화
+
+                    jsonData.forEach((row, index) => {
+                        const newRow = tableBody.insertRow();
+                        row.forEach(cell => {
+                            const newCell = newRow.insertCell();
+                            newCell.textContent = cell;
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error('엑셀 파일을 불러오는 중 오류가 발생했습니다:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

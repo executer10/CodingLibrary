@@ -151,378 +151,458 @@
                 </li>
             </ol>
 
-            <h3>내장 함수/매개 변수</h3>
-            <ol>
-                <li>데이터프레임 생성
-                    <pre>
+            <h3>내장 함수/속성값</h3>
+            <strong>
+                <pre>
+# 1. 데이터 접근 및 선택
+## 인덱싱/슬라이싱
+데이터프레임명.loc[             # 레이블 기반 접근
+    행_인덱스,                  # 행 레이블/조건 (필수)
+    열_이름                     # 열 레이블/조건 (필수)
+]
+
+데이터프레임명.iloc[            # 위치 기반 접근
+    행_위치,                    # 행 위치/슬라이스 (필수)
+    열_위치                     # 열 위치/슬라이스 (필수)
+]
+
+데이터프레임명.at[              # 단일 값 빠른 접근 (레이블)
+    행_레이블,                  # 행 레이블 (필수)
+    열_레이블                   # 열 레이블 (필수)
+]
+
+데이터프레임명.iat[             # 단일 값 빠른 접근 (정수 위치)
+    행_위치,                    # 행 인덱스 (필수)
+    열_위치                     # 열 인덱스 (필수)
+]
+
+<hr>
+
+# 2. 기본 속성 접근자
+## DataFrame 속성
+데이터프레임명.index            # 행 인덱스
+데이터프레임명.columns          # 열 이름
+데이터프레임명.dtypes           # 열별 데이터 타입
+데이터프레임명.shape            # (행 개수, 열 개수)
+데이터프레임명.size             # 전체 원소 개수
+데이터프레임명.values           # 배열 형태의 데이터
+데이터프레임명.empty            # 비어있는지 여부
+
+## Series 속성
+시리즈명.index                  # 인덱스
+시리즈명.dtype                  # 데이터 타입
+시리즈명.name                   # 시리즈 이름
+시리즈명.values                 # 배열 형태의 데이터
+시리즈명.size                   # 원소 개수
+
+<hr>
+
+# 3. 데이터 생성 및 변환
+## 데이터프레임 생성
 pd.DataFrame(
-    data,                # 데이터 (필수)
-    index=None,          # 행 인덱스
-    columns=None,        # 열 이름
-    dtype=None,          # 데이터 타입
-    copy=None            # 데이터 복사 여부
-)
-                    </pre>
-                </li>
-
-                <li>파일 읽기/쓰기
-                    <pre>
-# CSV 파일 읽기
-pd.read_csv(
-    filepath_or_buffer,  # 파일 경로 (필수)
-    sep=',',            # 구분자
-    header='infer',     # 헤더 행 위치
-    encoding=None,      # 파일 인코딩
-    dtype=None,         # 데이터 타입
-    nrows=None,         # 읽을 행 수
-    skiprows=None,      # 건너뛸 행
-    na_values=None      # NA로 처리할 값들
+    데이터,                     # 데이터 (필수)
+    index=인덱스,               # 행 인덱스 (선택)
+    columns=열이름,             # 열 이름 (선택)
+    dtype=데이터타입,           # 데이터 타입 (선택)
+    copy=복사여부               # 데이터 복사 여부 (선택)
 )
 
-# Excel 파일 읽기
-pd.read_excel(
-    io,                 # 파일 경로 (필수)
-    sheet_name=0,       # 시트 이름
-    header=0,           # 헤더 행 위치
-    names=None,         # 열 이름
-    skiprows=None,      # 건너뛸 행
-    index_col=None      # 인덱스로 사용할 열
+## 시리즈 생성
+pd.Series(
+    데이터,                     # 데이터 (필수)
+    index=인덱스,               # 인덱스 (선택)
+    dtype=데이터타입,           # 데이터 타입 (선택)
+    name=시리즈이름,            # 시리즈 이름 (선택)
+    copy=복사여부               # 복사 여부 (선택)
 )
 
-# 파일 저장
-DataFrame.to_csv(
-    path_or_buf=None,   # 저장 경로
-    sep=',',            # 구분자
-    header=True,        # 헤더 포함 여부
-    index=True,         # 인덱스 포함 여부
-    encoding=None       # 파일 인코딩
-)
-                    </pre>
-                </li>
-
-                <li>데이터 탐색
-                    <pre>
-# 기본 정보 확인
-DataFrame.info(
-    verbose=None,       # 출력 상세도
-    buf=None,           # 출력 대상
-    max_cols=None,      # 표시할 최대 열 수
-    memory_usage=None,  # 메모리 사용량 표시
-    show_counts=None    # null이 아닌 값 개수 표시
+## 데이터 타입 변환
+데이터프레임명.astype(
+    변환할_데이터타입,          # 변환할 데이터 타입 (필수)
+    copy=복사여부,              # 복사본 생성 여부 (선택)
+    errors='raise'              # 에러 처리 방식 (선택)
 )
 
-# 기초 통계량
-DataFrame.describe(
-    percentiles=None,   # 백분위수 목록
-    include=None,       # 포함할 데이터 타입
-    exclude=None        # 제외할 데이터 타입
+<hr>
+
+# 4. 데이터 탐색
+데이터프레임명.info(
+    verbose=상세도,             # 출력 상세도 (선택)
+    buf=출력대상,               # 출력 대상 (선택)
+    max_cols=최대열수,          # 표시할 최대 열 수 (선택)
+    memory_usage=메모리표시,    # 메모리 사용량 표시 (선택)
+    show_counts=개수표시        # null이 아닌 값 개수 표시 (선택)
 )
 
-# 데이터 샘플링
-DataFrame.sample(
-    n=None,            # 샘플 개수
-    frac=None,         # 샘플링 비율
-    replace=False,     # 복원 추출 여부
-    weights=None,      # 가중치
-    random_state=None  # 랜덤 시드
-)
-                    </pre>
-                </li>
-
-                <li>데이터 선택 및 필터링
-                    <pre>
-# 열 선택
-DataFrame.loc[
-    행_인덱스,          # 행 레이블/조건
-    열_이름             # 열 레이블/조건
-]
-
-DataFrame.iloc[
-    행_위치,           # 행 위치/슬라이스
-    열_위치            # 열 위치/슬라이스
-]
-
-# 조건부 필터링
-DataFrame.query(
-    expr,              # 필터링 조건식 (필수)
-    inplace=False,     # 원본 수정 여부
-    local_dict=None    # 로컬 변수 딕셔너리
+데이터프레임명.describe(
+    percentiles=백분위수목록,    # 백분위수 목록 (선택)
+    include=포함할타입,          # 포함할 데이터 타입 (선택)
+    exclude=제외할타입,          # 제외할 데이터 타입 (선택)
+    datetime_is_numeric=날짜수치처리  # 날짜를 수치로 취급 (선택)
 )
 
-# 값 대체
-DataFrame.replace(
-    to_replace=None,   # 대체할 값
-    value=None,        # 새로운 값
-    regex=False,       # 정규식 사용 여부
-    method=None        # 대체 방법
-)
-                    </pre>
-                </li>
-
-                <li>결측치 처리
-                    <pre>
-# 결측치 채우기
-DataFrame.fillna(
-    value=None,        # 채울 값
-    method=None,       # 채우기 방법 (ffill/bfill)
-    axis=None,         # 적용 축
-    inplace=False,     # 원본 수정 여부
-    limit=None         # 채우기 최대 횟수
+데이터프레임명.value_counts(
+    subset=대상열,              # 대상 열 (선택)
+    normalize=비율표시,          # 비율로 표시 (선택)
+    sort=정렬여부,              # 정렬 여부 (선택)
+    ascending=오름차순여부,      # 오름차순 여부 (선택)
+    dropna=NA제외여부           # NA 제외 여부 (선택)
 )
 
-# 결측치 제거
-DataFrame.dropna(
-    axis=0,           # 제거 축
-    how='any',        # 제거 조건 (any/all)
-    thresh=None,      # 최소 유효값 수
-    subset=None,      # 대상 열
-    inplace=False     # 원본 수정 여부
-)
-                    </pre>
-                </li>
+<hr>
 
-                <li>데이터 집계
-                    <pre>
-# 그룹화 연산
-DataFrame.groupby(
-    by=None,          # 그룹화 기준 (필수)
-    axis=0,           # 그룹화 축
-    level=None,       # 멀티인덱스 레벨
-    as_index=True,    # 그룹키를 인덱스로 사용
-    sort=True,        # 그룹키 정렬
-    group_keys=True   # 그룹키 포함 여부
+# 5. 데이터 탐색 확장
+## 정렬
+데이터프레임명.sort_values(
+    정렬기준열,                 # 정렬 기준 열 (필수)
+    axis=축,                    # 정렬 축 (선택, 0=행방향, 1=열방향)
+    ascending=오름차순여부,      # 오름차순 여부 (선택)
+    inplace=원본수정여부,        # 원본 수정 여부 (선택)
+    kind=정렬알고리즘,           # 정렬 알고리즘 (선택)
+    na_position=NA위치          # NA 위치 (선택, 'first' 또는 'last')
 )
 
-# 피벗 테이블
+데이터프레임명.sort_index(
+    axis=축,                    # 정렬 축 (선택)
+    level=레벨,                 # 멀티인덱스 레벨 (선택)
+    ascending=오름차순여부,      # 오름차순 여부 (선택)
+    inplace=원본수정여부,        # 원본 수정 여부 (선택)
+    kind=정렬알고리즘,           # 정렬 알고리즘 (선택)
+    na_position=NA위치          # NA 위치 (선택)
+)
+
+## 데이터 확인
+데이터프레임명.head(행개수)      # 상위 n개 행 (선택, 기본값=5)
+데이터프레임명.tail(행개수)      # 하위 n개 행 (선택, 기본값=5)
+
+<hr>
+
+# 6. 데이터 변환 및 계산
+## 데이터 변환
+데이터프레임명.apply(
+    적용할함수,                 # 적용할 함수 (필수)
+    axis=축,                    # 적용 축 (선택)
+    raw=배열처리방식,            # 배열 처리 방식 (선택)
+    result_type=결과타입,        # 결과 타입 (선택)
+    args=함수인자,               # 함수 인자 (선택)
+    **kwargs                    # 함수 키워드 인자 (선택)
+)
+
+데이터프레임명.applymap(
+    적용할함수,                 # 적용할 함수 (필수)
+    na_action=NA처리방식        # NA 처리 방식 (선택)
+)
+
+시리즈명.map(
+    매핑객체또는함수,            # 매핑 객체/함수 (필수)
+    na_action=NA처리방식        # NA 처리 방식 (선택)
+)
+
+## 연산 메서드
+데이터프레임명.add(더할값, axis=축, fill_value=채울값)
+데이터프레임명.sub(뺄값, axis=축, fill_value=채울값)
+데이터프레임명.mul(곱할값, axis=축, fill_value=채울값)
+데이터프레임명.div(나눌값, axis=축, fill_value=채울값)
+
+## 통계 메서드
+데이터프레임명.sum(axis=축, skipna=NA제외여부)
+데이터프레임명.mean(axis=축, skipna=NA제외여부)
+데이터프레임명.median(axis=축, skipna=NA제외여부)
+데이터프레임명.std(axis=축, skipna=NA제외여부)
+데이터프레임명.var(axis=축, skipna=NA제외여부)
+데이터프레임명.min(axis=축, skipna=NA제외여부)
+데이터프레임명.max(axis=축, skipna=NA제외여부)
+데이터프레임명.quantile(q=분위수, axis=축, numeric_only=숫자만)
+데이터프레임명.count(axis=축, numeric_only=숫자만)
+
+<hr>
+
+# 7. 데이터 변환 확장
+## 재구조화
+데이터프레임명.melt(
+    id_vars=유지할열,           # 유지할 열 (선택)
+    value_vars=변환할열,         # 값으로 변환할 열 (선택)
+    var_name=변수명열이름,       # 변수명 열 이름 (선택)
+    value_name=값열이름         # 값 열 이름 (선택)
+)
+
+데이터프레임명.stack(
+    level=스택레벨,             # 스택할 레벨 (선택)
+    dropna=NA제거여부           # NA 제거 여부 (선택)
+)
+
+데이터프레임명.unstack(
+    level=언스택레벨,           # 언스택할 레벨 (선택)
+    fill_value=채울값           # NA 대체값 (선택)
+)
+
+## 데이터 집계 확장
+데이터프레임명.agg(
+    집계함수,                   # 집계 함수 (필수)
+    axis=축,                    # 적용 축 (선택)
+    *args,                     # 함수 인자 (선택)
+    **kwargs                   # 함수 키워드 인자 (선택)
+)
+
+데이터프레임명.transform(
+    변환함수,                   # 변환 함수 (필수)
+    axis=축,                    # 적용 축 (선택)
+    *args,                     # 함수 인자 (선택)
+    **kwargs                   # 함수 키워드 인자 (선택)
+)
+
+<hr>
+
+# 8. 데이터 전처리
+## 결측치 처리
+데이터프레임명.isna()           # 결측치 확인
+데이터프레임명.notna()          # 비결측치 확인
+
+데이터프레임명.fillna(
+    채울값,                     # 채울 값 (필수)
+    method=채우기방법,           # 채우기 방법 (선택, 'ffill'/'bfill')
+    axis=축,                    # 적용 축 (선택)
+    inplace=원본수정여부,        # 원본 수정 여부 (선택)
+    limit=최대횟수              # 채우기 최대 횟수 (선택)
+)
+
+데이터프레임명.dropna(
+    axis=축,                    # 제거 축 (선택)
+    how=제거조건,               # 제거 조건 (선택, 'any'/'all')
+    thresh=최소유효값수,         # 최소 유효값 수 (선택)
+    subset=대상열,              # 대상 열 (선택)
+    inplace=원본수정여부         # 원본 수정 여부 (선택)
+)
+
+## 중복 처리
+데이터프레임명.duplicated(
+    subset=비교할열,            # 비교할 열 (선택)
+    keep=유지할중복행           # 유지할 중복 행 (선택, 'first'/'last'/'False')
+)
+
+데이터프레임명.drop_duplicates(
+    subset=비교할열,            # 비교할 열 (선택)
+    keep=유지할중복행,           # 유지할 중복 행 (선택)
+    inplace=원본수정여부,        # 원본 수정 여부 (선택)
+    ignore_index=인덱스재설정    # 인덱스 재설정 (선택)
+)
+
+## 데이터 대체
+데이터프레임명.replace(
+    대체할값,                   # 대체할 값 (필수)
+    새로운값,                   # 새로운 값 (필수)
+    inplace=원본수정여부,        # 원본 수정 여부 (선택)
+    limit=대체횟수제한,          # 대체 횟수 제한 (선택)
+    regex=정규식사용여부,        # 정규식 사용 여부 (선택)
+    method=대체방법             # 대체 방법 (선택)
+)
+
+<hr>
+
+# 9. 데이터 그룹화 및 집계
+## 그룹화
+데이터프레임명.groupby(
+    그룹화기준,                 # 그룹화 기준 (필수)
+    axis=축,                    # 그룹화 축 (선택)
+    level=레벨,                 # 멀티인덱스 레벨 (선택)
+    as_index=인덱스사용,         # 그룹키를 인덱스로 사용 (선택)
+    sort=정렬여부,              # 그룹키 정렬 (선택)
+    group_keys=그룹키포함,       # 그룹키 포함 여부 (선택)
+    observed=범주처리,           # 범주형 변수 처리 (선택)
+    dropna=NA처리               # NA 처리 (선택)
+)
+
+## 피벗 테이블
 pd.pivot_table(
-    data,             # 데이터프레임 (필수)
-    values=None,      # 집계할 열
-    index=None,       # 행 인덱스
-    columns=None,     # 열 인덱스
-    aggfunc='mean',   # 집계 함수
-    fill_value=None,  # 결측치 대체값
-    margins=False     # 총계 표시 여부
-)
-                    </pre>
-                </li>
-
-                <li>데이터 변환
-                    <pre>
-# 데이터 타입 변환
-DataFrame.astype(
-    dtype,            # 변환할 데이터 타입 (필수)
-    copy=True,        # 복사본 생성 여부
-    errors='raise'    # 에러 처리 방식
+    데이터,                     # 데이터프레임 (필수)
+    values=집계할열,            # 집계할 열 (선택)
+    index=행인덱스,             # 행 인덱스 (선택)
+    columns=열인덱스,           # 열 인덱스 (선택)
+    aggfunc=집계함수,           # 집계 함수 (선택)
+    fill_value=채울값,          # 결측치 대체값 (선택)
+    margins=총계표시,           # 총계 표시 여부 (선택)
+    margins_name=총계이름       # 총계 이름 (선택)
 )
 
-# 열 이름 변경
-DataFrame.rename(
-    mapper=None,      # 변경할 이름 매핑
-    index=None,       # 인덱스 이름 변경
-    columns=None,     # 열 이름 변경
-    axis=None,        # 적용 축
-    copy=True,        # 복사본 생성 여부
-    inplace=False     # 원본 수정 여부
-)
+<hr>
 
-# 정렬
-DataFrame.sort_values(
-    by,               # 정렬 기준 열 (필수)
-    axis=0,           # 정렬 축
-    ascending=True,   # 오름차순 여부
-    inplace=False,    # 원본 수정 여부
-    na_position='last'# NA 위치
-)
-                    </pre>
-                </li>
-
-                <li>데이터 병합
-                    <pre>
-# 데이터프레임 연결
-pd.concat(
-    objs,             # 연결할 객체들 (필수)
-    axis=0,           # 연결 축
-    join='outer',     # 조인 방식
-    ignore_index=False,# 인덱스 재설정
-    keys=None,        # 계층적 인덱스 키
-    verify_integrity=False # 인덱스 중복 검사
-)
-
-# 데이터프레임 병합
+# 10. 데이터 결합
 pd.merge(
-    left,             # 왼쪽 데이터프레임 (필수)
-    right,            # 오른쪽 데이터프레임 (필수)
-    how='inner',      # 조인 방식
-    on=None,          # 조인 키
-    left_on=None,     # 왼쪽 조인 키
-    right_on=None,    # 오른쪽 조인 키
-    suffixes=('_x', '_y') # 중복 열 접미사
-)
-                    </pre>
-                </li>
-
-                <li>시계열 데이터 처리
-                    <pre>
-# 시계열 리샘플링
-DataFrame.resample(
-    rule,             # 리샘플링 규칙 (필수)
-    axis=0,           # 적용 축
-    closed=None,      # 구간 닫힘 방식
-    label=None,       # 레이블 위치
-    convention='start'# 월말일 처리 규칙
+    왼쪽데이터프레임,            # 왼쪽 데이터프레임 (필수)
+    오른쪽데이터프레임,          # 오른쪽 데이터프레임 (필수)
+    how=조인방식,               # 조인 방식 (선택)
+    on=조인키,                  # 조인 키 (선택)
+    left_on=왼쪽조인키,         # 왼쪽 조인 키 (선택)
+    right_on=오른쪽조인키,       # 오른쪽 조인 키 (선택)
+    left_index=왼쪽인덱스사용,   # 왼쪽 인덱스 사용 (선택)
+    right_index=오른쪽인덱스사용, # 오른쪽 인덱스 사용 (선택)
+    sort=정렬여부,              # 정렬 여부 (선택)
+    suffixes=접미사,            # 중복 열 접미사 (선택)
+    copy=복사본생성,            # 복사본 생성 여부 (선택)
+    indicator=병합표시          # 병합 표시자 추가 (선택)
 )
 
-# 이동 평균
-DataFrame.rolling(
-    window,           # 윈도우 크기 (필수)
-    min_periods=None, # 최소 관측치 수
-    center=False,     # 윈도우 중앙 정렬
-    win_type=None,    # 윈도우 타입
-    on=None          # 기준 열
+pd.concat(
+    연결할객체들,               # 연결할 객체들 (필수)
+    axis=축,                    # 연결 축 (선택)
+    join=조인방식,              # 조인 방식 (선택)
+    ignore_index=인덱스재설정,   # 인덱스 재설정 (선택)
+    keys=계층키,                # 계층적 인덱스 키 (선택)
+    levels=계층레벨,            # 계층적 인덱스 레벨 (선택)
+    names=계층이름,             # 계층적 인덱스 이름 (선택)
+    verify_integrity=중복검사,   # 인덱스 중복 검사 (선택)
+    sort=정렬여부,              # 정렬 여부 (선택)
+    copy=복사본생성             # 복사본 생성 여부 (선택)
 )
-                    </pre>
-                </li>
-            </ol>
 
+<hr>
+
+# 11. 파일 입출력
+## CSV 파일
+    데이터프레임명.to_csv(
+    파일경로,                   # 저장 경로 (필수)
+    sep=구분자,                 # 구분자 (선택)
+    header=헤더포함여부,        # 헤더 포함 여부 (선택)
+    index=인덱스포함여부,       # 인덱스 포함 여부 (선택)
+    encoding=인코딩방식,        # 파일 인코딩 (선택)
+    na_rep=NA표시방식,         # NA 표시 방식 (선택)
+    compression=압축방식        # 압축 방식 (선택)
+)
+
+pd.read_csv(
+    파일경로,                   # 파일 경로 (필수)
+    sep=구분자,                 # 구분자 (선택)
+    header=헤더행위치,          # 헤더 행 위치 (선택)
+    index_col=인덱스열,         # 인덱스로 사용할 열 (선택)
+    usecols=사용할열목록,       # 사용할 열 선택 (선택)
+    dtype=데이터타입,           # 데이터 타입 (선택)
+    skiprows=건너뛸행,          # 건너뛸 행 (선택)
+    na_values=NA처리값목록      # NA로 처리할 값 (선택)
+)
+
+## Excel 파일
+pd.read_excel(
+    파일경로,                   # 파일 경로 (필수)
+    sheet_name=시트명,          # 시트 이름 (선택)
+    header=헤더행위치,          # 헤더 행 위치 (선택)
+    names=열이름목록,           # 열 이름 (선택)
+    usecols=사용할열목록,       # 사용할 열 (선택)
+    dtype=데이터타입,           # 데이터 타입 (선택)
+    skiprows=건너뛸행,          # 건너뛸 행 (선택)
+    nrows=읽을행수              # 읽을 행 수 (선택)
+)
+
+데이터프레임명.to_excel(
+    파일경로,                   # 저장 경로 (필수)
+    sheet_name=시트명,          # 시트 이름 (선택)
+    header=헤더포함여부,        # 헤더 포함 여부 (선택)
+    index=인덱스포함여부,       # 인덱스 포함 여부 (선택)
+    engine=엑셀엔진,            # 엑셀 엔진 (선택)
+    na_rep=NA표시방식          # NA 표시 방식 (선택)
+)
+
+## JSON
+pd.read_json(
+    파일경로,                   # 파일 경로 (필수)
+    orient=JSON구조,            # JSON 구조 형식 (선택)
+    dtype=데이터타입,           # 데이터 타입 (선택)
+    convert_dates=날짜변환여부, # 날짜 변환 여부 (선택)
+    encoding=인코딩방식         # 파일 인코딩 (선택)
+)
+
+데이터프레임명.to_json(
+    파일경로,                   # 저장 경로 (선택)
+    orient=JSON구조,            # JSON 구조 형식 (선택)
+    date_format=날짜형식,       # 날짜 형식 (선택)
+    double_precision=실수정밀도, # 실수 정밀도 (선택)
+    force_ascii=ASCII강제여부,  # ASCII 강제 여부 (선택)
+    date_unit=날짜단위,         # 날짜 단위 (선택)
+    default_handler=기본처리기  # 기본 처리기 (선택)
+)
+
+## SQL
+pd.read_sql(
+    SQL쿼리,                    # SQL 쿼리문 (필수)
+    연결객체,                   # 데이터베이스 연결 객체 (필수)
+    index_col=인덱스열,         # 인덱스로 사용할 열 (선택)
+    coerce_float=실수변환여부,  # 실수 형변환 여부 (선택)
+    parse_dates=날짜변환열,     # 날짜로 변환할 열 (선택)
+    chunksize=청크크기          # 청크 크기 (선택)
+)
+
+데이터프레임명.to_sql(
+    테이블명,                   # 테이블명 (필수)
+    연결객체,                   # 데이터베이스 연결 객체 (필수)
+    schema=스키마,              # 데이터베이스 스키마 (선택)
+    if_exists=기존테이블처리,   # 기존 테이블 처리 방식 (선택)
+    index=인덱스저장여부,       # 인덱스 저장 여부 (선택)
+    index_label=인덱스레이블,   # 인덱스 열 이름 (선택)
+    chunksize=청크크기,         # 청크 크기 (선택)
+    dtype=열데이터타입          # 열 데이터 타입 (선택)
+)
+
+<hr>
+
+# 12. 시계열 데이터 처리
+## 시계열 생성
+pd.date_range(
+    시작일,                     # 시작일 (선택)
+    종료일,                     # 종료일 (선택)
+    periods=기간수,             # 생성할 기간 수 (선택)
+    freq=주기,                  # 주기 (선택)
+    tz=시간대,                  # 시간대 (선택)
+    normalize=정규화여부,        # 시간 정규화 (선택)
+    inclusive=포함방식          # 시작/종료일 포함 방식 (선택)
+)
+
+## 시계열 리샘플링
+데이터프레임명.resample(
+    리샘플링규칙,               # 리샘플링 규칙 (필수)
+    axis=축,                    # 적용 축 (선택)
+    closed=구간닫힘방식,        # 구간 닫힘 방식 (선택)
+    label=레이블위치,           # 레이블 위치 (선택)
+    on=기준열,                  # 기준 열 (선택)
+    level=레벨                  # 멀티인덱스 레벨 (선택)
+)
+
+## 이동 창 연산
+데이터프레임명.rolling(
+    윈도우크기,                 # 윈도우 크기 (필수)
+    min_periods=최소관측치수,   # 최소 관측치 수 (선택)
+    center=중앙정렬여부,        # 윈도우 중앙 정렬 (선택)
+    win_type=윈도우타입,        # 윈도우 타입 (선택)
+    on=기준열,                  # 기준 열 (선택)
+    axis=축                     # 적용 축 (선택)
+)
+
+<hr>
+
+# 13. 고급 인덱싱 및 선택
+## 불리언 인덱싱
+데이터프레임명.where(
+    조건식,                     # 조건 (필수)
+    other=대체값,               # 조건 불만족 시 대체값 (선택)
+    inplace=원본수정여부,       # 원본 수정 여부 (선택)
+    axis=축,                    # 적용 축 (선택)
+    level=레벨,                 # 멀티인덱스 레벨 (선택)
+    errors=에러처리방식         # 에러 처리 방식 (선택)
+)
+
+## 쿼리 기반 선택
+데이터프레임명.query(
+    쿼리문자열,                 # 쿼리 문자열 (필수)
+    inplace=원본수정여부,       # 원본 수정 여부 (선택)
+    parser=파서엔진,            # 파서 엔진 (선택)
+    engine=실행엔진,            # 실행 엔진 (선택)
+    local_dict=로컬변수딕셔너리 # 로컬 변수 딕셔너리 (선택)
+)
+                </pre>
+            </strong>
+            
             <h3>예제 구문</h3>
             <strong>
                 <pre>
-# 1. 기본 설정
-# pandas와 numpy를 불러옵니다. pd와 np는 관례적으로 사용하는 별칭입니다.
-import pandas as pd
-import numpy as np
 
-<hr>
-
-# 2. 데이터프레임 구조 이해하기
-## 기본 구조 설명을 위한 예제
-sample_data = {
-    '이름': ['김철수', '이영희', '박민수'],  # 컬럼(열): 데이터의 특성
-    '나이': [25, 28, 32],                # 레코드(행): 개별 데이터 항목
-    '성별': ['남', '여', '남']           # 인덱스: 0부터 시작하는 기본 인덱스 사용
-}
-df_structure = pd.DataFrame(sample_data)
-print("# 데이터프레임 구조 확인")
-print("- 컬럼(열):", df_structure.columns)  # 컬럼명 확인
-print("- 인덱스:", df_structure.index)     # 인덱스 확인
-print("- 데이터:", df_structure.values)    # 실제 데이터 값
-
-<hr>
-
-# 3. 데이터 확인하기
-## 기본 정보 확인
-df1.info()          # 데이터프레임의 전체적인 정보 보기
-df1.head()          # 앞쪽 데이터 5행 보기
-df1.tail()          # 뒤쪽 데이터 5행 보기
-df1.describe()      # 수치형 데이터의 기본 통계 정보 보기
-
-## 자세한 정보 확인
-df1.info(memory_usage='deep')           # 메모리 사용량까지 자세히 보기
-df1.describe(include='all')             # 모든 열의 통계 정보 보기
-df1.sample(n=2, weights=df1['나이'])    # 나이를 기준으로 2개 행을 무작위 선택
-
-<hr>
-
-# 4. 데이터프레임 수정하기
-## 기본 수정
-df1.rename(columns={'나이': '연령'})    # '나이' 열 이름을 '연령'으로 변경
-df1.drop('성별', axis=1)                # '성별' 열 삭제하기
-df1.drop([0, 1], axis=0)                # 첫 번째, 두 번째 행 삭제하기
-
-## 데이터 타입 변경
-df1['성별'] = df1['성별'].astype('category')  # '성별' 열을 범주형으로 변경
-df1['나이'] = pd.to_numeric(df1['나이'], downcast='integer')  # '나이' 열을 정수형으로 변경
-
-<hr>
-
-# 5. 데이터 처리하기
-## 결측치(비어있는 데이터) 처리
-df1.isna()                              # 비어있는 데이터 찾기
-df1.fillna(0)                           # 비어있는 데이터를 0으로 채우기
-df1.dropna()                            # 비어있는 데이터가 있는 행 삭제하기
-df1.interpolate(method='linear')         # 비어있는 데이터를 선형 보간으로 채우기
-
-## 중복 데이터 처리
-df1.duplicated()                        # 중복된 행 찾기
-df1.drop_duplicates()                   # 중복된 행 삭제하기
-
-<hr>
-
-# 6. 데이터 집계하기
-## 기본 집계
-df1.groupby('성별')['나이'].mean()      # 성별 그룹별 평균 나이 계산
-df1.value_counts()                      # 각 값의 출현 빈도 계산
-
-## 피벗 테이블 만들기 (엑셀의 피벗 테이블과 비슷)
-pd.pivot_table(df1, values='나이', index='성별')
-
-<hr>
-
-# 7. 파일 저장하고 불러오기
-## CSV 파일
-df1.to_csv('학생정보.csv', index=False)  # CSV 파일로 저장
-pd.read_csv('학생정보.csv')              # CSV 파일 읽기
-
-## 엑셀 파일
-df1.to_excel('학생정보.xlsx', sheet_name='학생목록')  # 엑셀 파일로 저장
-pd.read_excel('학생정보.xlsx')           # 엑셀 파일 읽기
-
-<hr>
-
-# 8. 고급 기능 활용하기
-## 데이터 합치기
-pd.concat([df1, df2])                   # 두 데이터프레임을 위아래로 연결
-pd.merge(df1, df2, on='이름')           # '이름' 열을 기준으로 두 데이터프레임 병합
-
-## 시계열 데이터 다루기
-df_time = df1.set_index(dates)          # 날짜를 인덱스로 설정
-df_time.resample('M').mean()            # 월별 평균 계산
-df_time.rolling(window=2).mean()        # 2일 단위 이동평균 계산
-
-## 대용량 데이터 처리하기
-df1.memory_usage(deep=True)             # 메모리 사용량 확인
-# 큰 파일을 나눠서 처리하기
-for chunk in pd.read_csv('큰_파일.csv', chunksize=1000):
-    process_chunk(chunk)                # 1000행씩 나눠서 처리
-
-<hr>
-
-# 9. 대용량 데이터 처리 예시
-## 청크 단위 처리
-def process_large_file(filename):
-    chunk_size = 1000
-    chunks = []
-    for chunk in pd.read_csv(filename, chunksize=chunk_size):
-        # 데이터 처리 예시
-        processed = chunk.dropna()  # 결측치 제거
-        chunks.append(processed)
-    return pd.concat(chunks)
-
-## 메모리 최적화
-def optimize_dataframe(df):
-    # 데이터 타입 최적화
-    for col in df.columns:
-        if df[col].dtype == 'object':
-            df[col] = df[col].astype('category')
-        elif df[col].dtype == 'float64':
-            df[col] = pd.to_numeric(df[col], downcast='float')
-        elif df[col].dtype == 'int64':
-            df[col] = pd.to_numeric(df[col], downcast='integer')
-    return df
-
-<hr>
-
-# 10. 시계열 데이터 분석 특화 기능
-## 시계열 데이터 생성
-dates = pd.date_range('2024-01-01', periods=100, freq='D')
-time_data = pd.DataFrame({
-    '값': np.random.randn(100)
-}, index=dates)
-
-## 시계열 특화 분석
-time_data.resample('W').mean()    # 주간 평균
-time_data.resample('M').sum()     # 월간 합계
-time_data.rolling(window=7).mean() # 7일 이동평균
                 </pre>
             </strong>
         </td>

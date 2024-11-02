@@ -1,0 +1,177 @@
+<table>
+    <tr>
+        <th>
+            <h2>머신러닝</h2>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <h3>목차</h3>
+            <ul>
+                <li>머신러닝 학습 방법
+                    <ul>
+                        <li>지도 학습
+                            <ul>
+                                <li>분류(Classification)</li>
+                                <li>회귀(Regression)</li>
+                            </ul>
+                        </li>
+                        <li>비지도 학습
+                            <ul>
+                                <li>클러스터링</li>
+                                <li>차원 축소</li>
+                            </ul>
+                        </li>
+                        <li>강화 학습
+                            <ul>
+                                <li>Q-Learning</li>
+                                <li>정책 기반 학습</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>세부 내용</h3>
+            <ol>
+                <li>머신러닝 학습 방법
+                    <ol>
+                        <li>지도 학습
+                            <p>레이블이 있는 데이터를 사용하여 모델을 학습시키는 방법</p>
+                            <ul>
+                                <li>분류: 이메일 스팸 필터링, 이미지 인식 등에 사용</li>
+                                <li>회귀: 주택 가격 예측, 판매량 예측 등에 사용</li>
+                            </ul>
+                        </li>
+                        <li>비지도 학습
+                            <p>레이블이 없는 데이터에서 패턴을 발견하는 방법</p>
+                            <ul>
+                                <li>클러스터링: 고객 세그먼테이션, 이상 거래 탐지</li>
+                                <li>차원 축소: 특성 추출, 데이터 시각화</li>
+                            </ul>
+                        </li>
+                        <li>강화 학습
+                            <p>시행착오를 통해 최적의 행동을 학습하는 방법</p>
+                            <ul>
+                                <li>게임 AI: 체스, 바둑 등의 게임 전략 학습</li>
+                                <li>로봇 제어: 물체 조작, 이동 경로 최적화</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+
+            <h3>특징</h3>
+            <ol>
+                <li>데이터 기반 의사결정
+                    <p>예시: 신용카드 이상 거래 탐지 시스템에서 실시간으로 사기 거래 패턴 학습</p>
+                </li>
+                <li>자동화된 패턴 인식
+                    <p>예시: 제조업에서 제품 품질 검사를 자동화하여 불량품 식별</p>
+                </li>
+                <li>지속적 성능 개선
+                    <p>예시: 추천 시스템이 사용자 피드백을 통해 추천 정확도 향상</p>
+                </li>
+            </ol>
+
+            <h3>사용 이유</h3>
+            <ol>
+                <li>대규모 데이터 처리 자동화
+                    <p>실제 사례: Netflix에서 하루 수백만 건의 시청 데이터를 분석하여 개인화된 콘텐츠 추천</p>
+                </li>
+                <li>복잡한 패턴 발견
+                    <p>실제 사례: 의료 영상에서 AI가 초기 단계 종양을 발견하여 조기 진단 지원</p>
+                </li>
+                <li>예측 정확도 향상
+                    <p>실제 사례: 기상청의 일기 예보 정확도를 기존 통계 모델 대비 15% 향상</p>
+                </li>
+            </ol>
+
+            <h3>내장 함수, 속성값</h3>
+            <pre>
+# 데이터 분할 (필수)
+train_test_split(
+    X,                      # 필수: 특성 데이터
+    y,                      # 필수: 레이블 데이터
+    test_size=0.2,         # 선택: 테스트 세트 비율 (기본값=0.2)
+    random_state=None,     # 선택: 랜덤 시드 (재현성 위해 설정)
+    shuffle=True           # 선택: 데이터 섞기 (기본값=True)
+)
+
+# 데이터 정규화 (선택)
+StandardScaler(
+    copy=True,            # 선택: 원본 데이터 보존 (기본값=True)
+    with_mean=True,       # 선택: 평균 정규화 (기본값=True)
+    with_std=True         # 선택: 표준편차 정규화 (기본값=True)
+)
+
+# 모델 학습 (필수)
+model.fit(
+    X,                    # 필수: 학습 데이터
+    y,                    # 필수: 레이블
+    sample_weight=None    # 선택: 샘플 가중치 (기본값=None)
+)
+
+# 예측 수행 (필수)
+model.predict(
+    X                     # 필수: 예측할 데이터
+)
+            </pre>
+
+            <h3>예제 구문</h3>
+            <pre>
+# 1. 지도 학습 예제 (분류)
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+
+# 데이터 준비
+iris = load_iris()
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# 데이터 정규화
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# 모델 학습
+model = LogisticRegression()
+model.fit(X_train_scaled, y_train)
+
+# 예측
+predictions = model.predict(X_test_scaled)
+print(f"정확도: {model.score(X_test_scaled, y_test):.2f}")
+
+# 2. 비지도 학습 예제 (클러스터링)
+from sklearn.cluster import KMeans
+
+kmeans = KMeans(n_clusters=3)
+clusters = kmeans.fit_predict(X_train_scaled)
+print(f"클러스터 중심: {kmeans.cluster_centers_}")
+
+# 3. 강화 학습 예제 (Q-Learning)
+import numpy as np
+
+class QLearning:
+    def __init__(self, states, actions):
+        self.q_table = np.zeros((states, actions))
+    
+    def get_action(self, state):
+        return np.argmax(self.q_table[state])
+    
+    def update(self, state, action, reward, next_state):
+        old_value = self.q_table[state, action]
+        next_max = np.max(self.q_table[next_state])
+        self.q_table[state, action] = old_value + 0.1 * (reward + 0.9 * next_max - old_value)
+
+# 강화학습 예시
+agent = QLearning(states=10, actions=4)
+state = 0
+action = agent.get_action(state)
+agent.update(state=0, action=action, reward=1, next_state=1)
+            </pre>
+        </td>
+    </tr>
+</table>
