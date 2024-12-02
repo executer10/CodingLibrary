@@ -10,14 +10,17 @@ table{
 }
 table, tr, td, caption{
     padding: 10px;
-    background-color: rgb(231, 231, 231);
+    background-color: black;
+    color: white;
     border-collapse: collapse; /* 이중 테두리를 단일 테두리로 변경*/
-    border: 1px solid black;
+    border: 1px solid white;
     word-break: break-all; /*텍스트가 컨테이너의 경계를 넘어갈 때 줄바꿈*/
 }
 
 nav{
-    border: 1px black solid;
+    background-color: black;
+    color: white;
+    border: 1px white solid;
     padding-left: 10px;
     padding-right: 10px;
 }

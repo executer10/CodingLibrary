@@ -1,177 +1,306 @@
 <table>
     <tr>
-        <th>
-            <h2>머신러닝</h2>
-        </th>
+        <th>머신러닝</th>
     </tr>
     <tr>
         <td>
             <h3>목차</h3>
-            <ul>
-                <li>머신러닝 학습 방법
+            <ol>
+                <li>머신러닝
                     <ul>
-                        <li>지도 학습
+                        <li>머신러닝이란?</li>
+                        <li>머신러닝 학습 방법
                             <ul>
-                                <li>분류(Classification)</li>
-                                <li>회귀(Regression)</li>
+                                <li>지도 학습</li>
+                                <li>비지도 학습</li>
+                                <li>강화 학습</li>
                             </ul>
                         </li>
-                        <li>비지도 학습
+                        <li>머신러닝의 특징
                             <ul>
-                                <li>클러스터링</li>
-                                <li>차원 축소</li>
-                            </ul>
-                        </li>
-                        <li>강화 학습
-                            <ul>
-                                <li>Q-Learning</li>
-                                <li>정책 기반 학습</li>
+                                <li>장점</li>
+                                <li>한계</li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-            </ul>
+                <li>파이썬으로 간단한 머신러닝 코드 작성하기
+                    <ul>
+                        <li>학습 데이터 준비하기(엑셀)</li>
+                        <li>파이썬 코드 작성하기
+                            <ul>
+                                <li>사이킷런 설치</li>
+                                <li>학습할 데이터를 입력 후 모델 생성하기</li>
+                                <li>새로운 데이터를 생성한 학습 모델에 넣어 결과 예측하기</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
 
             <h3>세부 내용</h3>
             <ol>
-                <li>머신러닝 학습 방법
-                    <ol>
-                        <li>지도 학습
-                            <p>레이블이 있는 데이터를 사용하여 모델을 학습시키는 방법</p>
+                <li>
+                    <strong>머신러닝이란?</strong>
+                    <ul>
+                        <li>
+                            <strong>개념 정의</strong>
+                            <p><strong>머신러닝</strong>은 컴퓨터가 명시적으로 프로그래밍되지 않고도 데이터로부터 학습하고 자동으로 개선되는 인공지능의 한 분야입니다.</p>
+                        </li>
+                        <li>
+                            <strong>작동 원리</strong>
+                            <p>마치 아이가 경험을 통해 배우듯이, 머신러닝 알고리즘은 대량의 데이터를 통해 패턴을 학습하고 미래의 결과를 예측합니다.</p>
+                        </li>
+                        <li>
+                            <strong>실제 활용 사례</strong>
                             <ul>
-                                <li>분류: 이메일 스팸 필터링, 이미지 인식 등에 사용</li>
-                                <li>회귀: 주택 가격 예측, 판매량 예측 등에 사용</li>
+                                <li>넷플릭스 영화 추천 시스템</li>
+                                <li>스마트폰 얼굴 인식</li>
+                                <li>자율주행 자동차의 장애물 감지</li>
                             </ul>
                         </li>
-                        <li>비지도 학습
-                            <p>레이블이 없는 데이터에서 패턴을 발견하는 방법</p>
+                    </ul>
+                </li>
+                <li>
+                    <strong>머신러닝 학습 방법</strong>
+                    <ul>
+                        <li>
+                            <strong>지도 학습 (Supervised Learning)</strong>
                             <ul>
-                                <li>클러스터링: 고객 세그먼테이션, 이상 거래 탐지</li>
-                                <li>차원 축소: 특성 추출, 데이터 시각화</li>
+                                <li><strong>정의</strong>: 이미 레이블링된 데이터로 학습</li>
+                                <li><strong>예시</strong>: 스팸 메일 분류, 주택 가격 예측</li>
+                                <li><strong>주요 알고리즘</strong>: 선형 회귀, 로지스틱 회귀, 결정 트리</li>
                             </ul>
                         </li>
-                        <li>강화 학습
-                            <p>시행착오를 통해 최적의 행동을 학습하는 방법</p>
+                        <li>
+                            <strong>비지도 학습 (Unsupervised Learning)</strong>
                             <ul>
-                                <li>게임 AI: 체스, 바둑 등의 게임 전략 학습</li>
-                                <li>로봇 제어: 물체 조작, 이동 경로 최적화</li>
+                                <li><strong>정의</strong>: 레이블이 없는 데이터에서 패턴 발견</li>
+                                <li><strong>예시</strong>: 고객 세분화, 추천 시스템</li>
+                                <li><strong>주요 알고리즘</strong>: K-means 클러스터링, PCA</li>
                             </ul>
                         </li>
-                    </ol>
+                        <li>
+                            <strong>강화 학습 (Reinforcement Learning)</strong>
+                            <ul>
+                                <li><strong>정의</strong>: 환경과 상호작용하며 최적의 행동 학습</li>
+                                <li><strong>예시</strong>: 알파고, 로봇 제어 시스템</li>
+                                <li><strong>핵심 개념</strong>: 보상과 페널티를 통한 학습</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>파이썬으로 간단한 머신러닝 코드 작성하기</strong>
+                    <ul>
+                        <li>
+                            <strong>학습 데이터 준비하기</strong>
+                            <p>엑셀 파일로 간단한 데이터셋 준비 (예: 집값 예측을 위한 면적, 방 개수 데이터)</p>
+                        </li>
+                        <li>
+                            <strong>파이썬 코드 작성하기</strong>
+                            <ul>
+                                <li>
+                                    <strong>사이킷런 설치</strong>
+                                    <pre><code>pip install scikit-learn pandas numpy</code></pre>
+                                </li>
+                                <li>
+                                    <strong>데이터 로드 및 모델 생성</strong>
+                                    <pre><code>
+# 라이브러리 불러오기
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# 아파트 데이터 불러오기
+아파트정보 = pd.read_excel('아파트정보.xlsx')
+
+# 학습에 사용할 정보 준비하기
+입력정보 = 아파트정보[['평수', '방개수']]
+실제가격 = 아파트정보['매매가']
+
+# 학습용과 테스트용으로 데이터 나누기
+학습용_입력, 테스트용_입력, 학습용_가격, 테스트용_가격 = train_test_split(입력정보, 실제가격, test_size=0.2)
+
+# 머신러닝 모델 만들고 학습시키기
+예측모델 = LinearRegression()
+예측모델.fit(학습용_입력, 학습용_가격)
+                                    </code></pre>
+                                </li>
+                                <li>
+                                    <strong>예측하기</strong>
+                                    <pre><code>
+# 새로운 아파트 가격 예측하기
+새아파트 = [[32, 3]]  # 32평, 방 3개
+예측가격 = 예측모델.predict(새아파트)
+print(f'예측된 가격: {예측가격[0]}만원')
+                                    </code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </li>
             </ol>
 
             <h3>특징</h3>
-            <ol>
-                <li>데이터 기반 의사결정
-                    <p>예시: 신용카드 이상 거래 탐지 시스템에서 실시간으로 사기 거래 패턴 학습</p>
+            <ul>
+                <li>
+                    <strong>머신러닝의 장점</strong>
+                    <ul>
+                        <li>복잡한 패턴 인식</li>
+                        <li>대규모 데이터 처리 능력</li>
+                        <li>지속적인 자가 개선</li>
+                    </ul>
                 </li>
-                <li>자동화된 패턴 인식
-                    <p>예시: 제조업에서 제품 품질 검사를 자동화하여 불량품 식별</p>
+                <li>
+                    <strong>머신러닝의 한계</strong>
+                    <ul>
+                        <li>고품질 데이터 필요</li>
+                        <li>과적합 위험</li>
+                        <li>해석의 어려움</li>
+                    </ul>
                 </li>
-                <li>지속적 성능 개선
-                    <p>예시: 추천 시스템이 사용자 피드백을 통해 추천 정확도 향상</p>
+            </ul>
+
+            <h3>예제 구문 (난이도별 예시)</h3>
+            <ul>
+                <li>초급: 간단한 선형 회귀 예제
+                    <pre>
+# 필요한 라이브러리 불러오기
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# 데이터 생성 (예: 공부 시간과 시험 점수)
+공부시간 = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+시험점수 = np.array([10, 20, 30, 40, 50])
+
+# 선형 회귀 모델 생성 및 학습
+모델 = LinearRegression()
+모델.fit(공부시간, 시험점수)
+
+# 예측 값 계산
+예측점수 = 모델.predict(공부시간)
+
+# 결과 시각화
+plt.scatter(공부시간, 시험점수, color='blue', label='실제 점수')
+plt.plot(공부시간, 예측점수, color='red', label='예측 점수')
+plt.xlabel('공부 시간')
+plt.ylabel('시험 점수')
+plt.legend()
+plt.show()
+                    </pre>
                 </li>
-            </ol>
-
-            <h3>사용 이유</h3>
-            <ol>
-                <li>대규모 데이터 처리 자동화
-                    <p>실제 사례: Netflix에서 하루 수백만 건의 시청 데이터를 분석하여 개인화된 콘텐츠 추천</p>
-                </li>
-                <li>복잡한 패턴 발견
-                    <p>실제 사례: 의료 영상에서 AI가 초기 단계 종양을 발견하여 조기 진단 지원</p>
-                </li>
-                <li>예측 정확도 향상
-                    <p>실제 사례: 기상청의 일기 예보 정확도를 기존 통계 모델 대비 15% 향상</p>
-                </li>
-            </ol>
-
-            <h3>내장 함수, 속성값</h3>
-            <pre>
-# 데이터 분할 (필수)
-train_test_split(
-    X,                      # 필수: 특성 데이터
-    y,                      # 필수: 레이블 데이터
-    test_size=0.2,         # 선택: 테스트 세트 비율 (기본값=0.2)
-    random_state=None,     # 선택: 랜덤 시드 (재현성 위해 설정)
-    shuffle=True           # 선택: 데이터 섞기 (기본값=True)
-)
-
-# 데이터 정규화 (선택)
-StandardScaler(
-    copy=True,            # 선택: 원본 데이터 보존 (기본값=True)
-    with_mean=True,       # 선택: 평균 정규화 (기본값=True)
-    with_std=True         # 선택: 표준편차 정규화 (기본값=True)
-)
-
-# 모델 학습 (필수)
-model.fit(
-    X,                    # 필수: 학습 데이터
-    y,                    # 필수: 레이블
-    sample_weight=None    # 선택: 샘플 가중치 (기본값=None)
-)
-
-# 예측 수행 (필수)
-model.predict(
-    X                     # 필수: 예측할 데이터
-)
-            </pre>
-
-            <h3>예제 구문</h3>
-            <pre>
-# 1. 지도 학습 예제 (분류)
-from sklearn.datasets import load_iris
+                <li>중급: 분류 문제 해결
+                    <pre>
+# 필요한 라이브러리 불러오기
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
 
-# 데이터 준비
+# 데이터 불러오기 (예: 아이리스 데이터셋)
+from sklearn.datasets import load_iris
 iris = load_iris()
-X, y = iris.data, iris.target
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+데이터 = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+레이블 = pd.Series(iris.target)
 
-# 데이터 정규화
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+# 학습용과 테스트용 데이터 나누기
+학습용_데이터, 테스트용_데이터, 학습용_레이블, 테스트용_레이블 = train_test_split(데이터, 레이블, test_size=0.2, random_state=42)
 
-# 모델 학습
-model = LogisticRegression()
-model.fit(X_train_scaled, y_train)
+# 데이터 표준화
+스케일러 = StandardScaler()
+학습용_데이터 = 스케일러.fit_transform(학습용_데이터)
+테스트용_데이터 = 스케일러.transform(테스트용_데이터)
 
-# 예측
-predictions = model.predict(X_test_scaled)
-print(f"정확도: {model.score(X_test_scaled, y_test):.2f}")
+# K-최근접 이웃 분류기 생성 및 학습
+모델 = KNeighborsClassifier(n_neighbors=3)
+모델.fit(학습용_데이터, 학습용_레이블)
 
-# 2. 비지도 학습 예제 (클러스터링)
-from sklearn.cluster import KMeans
-
-kmeans = KMeans(n_clusters=3)
-clusters = kmeans.fit_predict(X_train_scaled)
-print(f"클러스터 중심: {kmeans.cluster_centers_}")
-
-# 3. 강화 학습 예제 (Q-Learning)
+# 예측 및 정확도 평가
+예측_레이블 = 모델.predict(테스트용_데이터)
+정확도 = accuracy_score(테스트용_레이블, 예측_레이블)
+print(f'모델 정확도: {정확도 * 100:.2f}%')
+                    </pre>
+                </li>
+                <li>고급: 강화 학습을 통한 게임 에이전트 개발
+                    <pre>
+# 필요한 라이브러리 불러오기
+import gym
 import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
 
-class QLearning:
-    def __init__(self, states, actions):
-        self.q_table = np.zeros((states, actions))
-    
-    def get_action(self, state):
-        return np.argmax(self.q_table[state])
-    
-    def update(self, state, action, reward, next_state):
-        old_value = self.q_table[state, action]
-        next_max = np.max(self.q_table[next_state])
-        self.q_table[state, action] = old_value + 0.1 * (reward + 0.9 * next_max - old_value)
+# 환경 설정 (예: CartPole-v1)
+환경 = gym.make('CartPole-v1')
+상태_크기 = 환경.observation_space.shape[0]
+행동_크기 = 환경.action_space.n
 
-# 강화학습 예시
-agent = QLearning(states=10, actions=4)
-state = 0
-action = agent.get_action(state)
-agent.update(state=0, action=action, reward=1, next_state=1)
-            </pre>
+# Q-네트워크 모델 생성
+모델 = Sequential()
+모델.add(Dense(24, input_dim=상태_크기, activation='relu'))
+모델.add(Dense(24, activation='relu'))
+모델.add(Dense(행동_크기, activation='linear'))
+모델.compile(loss='mse', optimizer=Adam(lr=0.001))
+
+# 하이퍼파라미터 설정
+에피소드 = 1000
+감가율 = 0.95
+학습률 = 0.001
+탐험률 = 1.0
+탐험률_감소 = 0.995
+최소_탐험률 = 0.01
+배치_크기 = 32
+메모리 = []
+
+# 강화 학습 수행
+for 에피소드_번호 in range(에피소드):
+    상태 = 환경.reset()
+    상태 = np.reshape(상태, [1, 상태_크기])
+    총_보상 = 0
+    
+    while True:
+        # 탐험 또는 활용 결정
+        if np.random.rand() &lt;= 탐험률:
+            행동 = np.random.choice(행동_크기)
+        else:
+            행동_값 = 모델.predict(상태)
+            행동 = np.argmax(행동_값[0])
+        
+        # 행동 수행 및 다음 상태, 보상, 종료 여부 관찰
+        다음_상태, 보상, 종료, _ = 환경.step(행동)
+        다음_상태 = np.reshape(다음_상태, [1, 상태_크기])
+        총_보상 += 보상
+        
+        # 메모리에 저장
+        메모리.append((상태, 행동, 보상, 다음_상태, 종료))
+        상태 = 다음_상태
+        
+        # 종료 시 에피소드 종료
+        if 종료:
+            print(f'에피소드: {에피소드_번호}, 총 보상: {총_보상}, 탐험률: {탐험률:.2f}')
+            break
+        
+        # 경험 재생 및 모델 학습
+        if len(메모리) &gt; 배치_크기:
+            배치 = np.random.choice(len(메모리), 배치_크기)
+            for 상태, 행동, 보상, 다음_상태, 종료 in [메모리[i] for i in 배치]:
+                목표 = 보상
+                if not 종료:
+                    목표 += 감가율 * np.amax(모델.predict(다음_상태)[0])
+                목표_값 = 모델.predict(상태)
+                목표_값[0][행동] = 목표
+                모델.fit(상태, 목표_값, epochs=1, verbose=0)
+        
+        # 탐험률 감소
+        if 탐험률 &gt; 최소_탐험률:
+            탐험률 *= 탐험률_감소
+                    </pre>
+                </li>
+            </ul>
         </td>
     </tr>
 </table>
